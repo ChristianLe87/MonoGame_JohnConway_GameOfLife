@@ -14,5 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)IScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WK.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cell.cs" />
   </ItemGroup>
 </Project>
