@@ -1,0 +1,19 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{B8A5CFB4-A466-4784-A9DD-12B6B06A7980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{9454C73B-030B-4100-B3D0-44176E855C31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9454C73B-030B-4100-B3D0-44176E855C31}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{9454C73B-030B-4100-B3D0-44176E855C31}.Debug|anycpu.Build.0 = Debug|anycpu
+		{9454C73B-030B-4100-B3D0-44176E855C31}.Release|anycpu.ActiveCfg = Release|anycpu
+		{9454C73B-030B-4100-B3D0-44176E855C31}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
