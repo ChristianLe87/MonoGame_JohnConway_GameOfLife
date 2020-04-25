@@ -10,11 +10,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MyGame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IScene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WK.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Menu.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Cell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\Scene1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\WK.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Tools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\IScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Cell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Scenes\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Tools\" />
   </ItemGroup>
 </Project>
