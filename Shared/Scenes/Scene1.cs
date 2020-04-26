@@ -34,51 +34,93 @@ namespace Shared
             }
 
 
-            // Get surrounding cells
+
+            // copy cells to newCells
             Cell[,] newCells = new Cell[50, 50];
-            newCells = cells;
+            for (var row = 0; row < 50; row++)
+            {
+                for (var col = 0; col < 50; col++)
+                {
+                    newCells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), cells[row,col].isAlive, Color.Green, Color.Brown);
+                }
+            }
+
+
+
+
+
+
+            // Get surrounding cells
+
 
             for (var row = 0; row < 50; row++)
             {
                 for (var col = 0; col < 50; col++)
                 {
 
-                    Cell celTopL, celTopC, celTopR, celMiddleL, celMiddleC, celMiddleR, celDownL, celDownC, celDownR;
+                    Cell celTopL, celTopC, celTopR, celMiddleL, /*celMiddleC,*/ celMiddleR, celDownL, celDownC, celDownR;
 
                     try { celTopL = cells[row - 1, col - 1]; } catch { celTopL = null; }
                     try { celTopC = cells[row - 1, col]; } catch { celTopC = null; }
                     try { celTopR = cells[row - 1, col + 1]; } catch { celTopR = null; }
 
                     try { celMiddleL = cells[row, col - 1]; } catch { celMiddleL = null; }
-                    try { celMiddleC = cells[row, col]; } catch { celMiddleC = null; }
+                    //try { celMiddleC = cells[row, col]; } catch { celMiddleC = null; }
                     try { celMiddleR = cells[row, col + 1]; } catch { celMiddleR = null; }
 
                     try { celDownL = cells[row + 1, col - 1]; } catch { celDownL = null; }
                     try { celDownC = cells[row + 1, col]; } catch { celDownC = null; }
                     try { celDownR = cells[row + 1, col + 1]; } catch { celDownR = null; }
 
-                    Cell[] surroundingCells = new Cell[] { celTopL, celTopC, celTopR, celMiddleL, celMiddleC, celMiddleR, celDownL, celDownC, celDownR };
+                    Cell[] surroundingCells = new Cell[] { celTopL, celTopC, celTopR, celMiddleL, /*celMiddleC,*/ celMiddleR, celDownL, celDownC, celDownR };
 
                     // check if new cell will be alive
-                    var aliveCells = surroundingCells.Where(x => x != null).Where(x=>x.isAlive == true).ToArray();
+                    var nAliveCells = surroundingCells
+                        .Where(x => x != null)
+                        .Where(x=>x.isAlive == true)
+                        .ToArray()
+                        .Count();
 
-                    if (cells[row, col].isAlive == false && aliveCells.Count() == 3)
+                    // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+                    if (cells[row, col].isAlive == true && nAliveCells < 2)
                     {
-                        newCells[row, col] = cells[row, col];
-                        newCells[row, col].isAlive = true;
+                        newCells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), false, Color.Green, Color.Brown);
                     }
-                    else if(cells[row, col].isAlive == true && ((aliveCells.Count() == 2 || aliveCells.Count() == 3)))
-                    {
-                        newCells[row, col] = cells[row, col];
-                        newCells[row, col].isAlive = false;
 
+                    // Any live cell with two or three live neighbours lives on to the next generation.
+                    if (cells[row, col].isAlive == true && nAliveCells == 2)
+                    {
+                        newCells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), true, Color.Green, Color.Brown);
+                    }
+                    else if(cells[row, col].isAlive == true && nAliveCells == 3)
+                    {
+                        newCells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), true, Color.Green, Color.Brown);
+                    }
+
+                    // Any live cell with more than three live neighbours dies, as if by overpopulation.
+                    if (cells[row, col].isAlive == true && nAliveCells > 3)
+                    {
+                        newCells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), false, Color.Green, Color.Brown);
+                    }
+
+                    // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+                    if (cells[row, col].isAlive == false && nAliveCells == 3)
+                    {
+                        newCells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), true, Color.Green, Color.Brown);
                     }
                 }
             }
 
-            cells = newCells;
 
 
+            // copy newCells to cells
+            for (var row = 0; row < 50; row++)
+            {
+                for (var col = 0; col < 50; col++)
+                {
+                    cells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), newCells[row, col].isAlive, Color.Green, Color.Brown);
+                }
+            }
 
 
         }
