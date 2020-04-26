@@ -36,6 +36,7 @@ namespace Shared
 
             // Get surrounding cells
             Cell[,] newCells = new Cell[50, 50];
+            newCells = cells;
 
             for (var row = 0; row < 50; row++)
             {
