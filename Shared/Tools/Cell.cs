@@ -59,5 +59,6 @@ namespace Shared
                 spriteBatch.Draw(deadTexture, rectangle, Color.White);
             }
         }
+
     }
 }

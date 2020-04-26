@@ -27,6 +27,11 @@ namespace Shared
             this.Content.RootDirectory = absolutePath;
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
+            // FPS
+            this.IsFixedTimeStep = true;
+            double fps = 2d;
+            this.TargetElapsedTime = TimeSpan.FromSeconds(1d / fps);
+
             // Window size
             graphicsDeviceManager.PreferredBackBufferWidth = canvasWidth;
             graphicsDeviceManager.PreferredBackBufferHeight = canvasHeight;
@@ -54,6 +59,8 @@ namespace Shared
 
         protected override void Update(GameTime gameTime)
         {
+            Console.WriteLine($"===== Running at FPS: {1f / (gameTime.ElapsedGameTime.Milliseconds / 1000f)} =====");
+
             scenes[actualScene].Update();
 
             if (actualScene == WK.Scene.Menu)
