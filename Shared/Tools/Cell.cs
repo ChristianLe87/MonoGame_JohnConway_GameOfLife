@@ -9,17 +9,19 @@ namespace Shared
     {
         Texture2D aliveTexture;
         Texture2D deadTexture;
-        Rectangle rectangle;
+        public Rectangle rectangle;
 
         public bool isAlive;
 
-        public Cell(Rectangle rectangle, bool isAlive, Color aliveColor, Color deadColor)
+        public bool nextGenerationState;
+
+        public Cell(Rectangle rectangle, bool isAlive)
         {
             this.rectangle = rectangle;
             this.isAlive = isAlive;
 
-            this.aliveTexture = Tools.CreateColorTexture(aliveColor, rectangle.Width, rectangle.Height);
-            this.deadTexture = Tools.CreateColorTexture(deadColor, rectangle.Width, rectangle.Height);
+            this.aliveTexture = Tools.CreateColorTexture(Color.Green, rectangle.Width, rectangle.Height);
+            this.deadTexture = Tools.CreateColorTexture(Color.Brown, rectangle.Width, rectangle.Height);
         }
 
         internal void Update()
@@ -38,14 +40,13 @@ namespace Shared
             {
                 if (mouseState.RightButton == ButtonState.Pressed)
                 {
-                    isAlive = true;
+                    isAlive = false;
                 }
                 else if(mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    isAlive = false;
+                    isAlive = true;
                 }
             }
-
         }
 
         internal void Draw(SpriteBatch spriteBatch)
@@ -58,6 +59,11 @@ namespace Shared
             {
                 spriteBatch.Draw(deadTexture, rectangle, Color.White);
             }
+        }
+
+        internal void Evolve()
+        {
+            this.isAlive = this.nextGenerationState;
         }
 
     }

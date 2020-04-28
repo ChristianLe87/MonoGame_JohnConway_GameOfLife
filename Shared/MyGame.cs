@@ -22,14 +22,14 @@ namespace Shared
 
         public MyGame()
         {
-            string relativePath = $"../../../../MonoGame_JohnConway_GameOfLife/Assets/";
+            /*string relativePath = $"../../../../MonoGame_JohnConway_GameOfLife/Assets/";
             string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
-            this.Content.RootDirectory = absolutePath;
+            this.Content.RootDirectory = absolutePath;*/
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
             // FPS
             this.IsFixedTimeStep = true;
-            double fps = 2d;
+            double fps = 60d;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1d / fps);
 
             // Window size
@@ -67,7 +67,6 @@ namespace Shared
                 this.IsMouseVisible = true;
             else
                 this.IsMouseVisible = true;
-
 
             base.Update(gameTime);
         }
