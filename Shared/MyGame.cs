@@ -61,7 +61,7 @@ namespace Shared
         {
             Console.WriteLine($"===== Running at FPS: {1f / (gameTime.ElapsedGameTime.Milliseconds / 1000f)} =====");
 
-            scenes[actualScene].Update();
+            scenes[actualScene].Update(gameTime);
 
             if (actualScene == WK.Scene.Menu)
                 this.IsMouseVisible = true;

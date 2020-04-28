@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
@@ -12,7 +13,7 @@ namespace Shared
             this.content = content;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -21,5 +22,7 @@ namespace Shared
         {
             throw new System.NotImplementedException();
         }
+
+        
     }
 }
