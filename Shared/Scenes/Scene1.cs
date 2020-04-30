@@ -14,18 +14,28 @@ namespace Shared
 
         public Scene1(ContentManager content)
         {
+            // define each cell
             for (var row = 0; row < 50; row++)
             {
                 for (var col = 0; col < 50; col++)
                 {
-                    if(WK.Level.dis1[row, col] == ' ')
+                    if (WK.Level.dis1[row, col] == ' ')
                     {
                         cells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), false);
                     }
-                    else if(WK.Level.dis1[row, col] == 'x')
+                    else if (WK.Level.dis1[row, col] == 'x')
                     {
                         cells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), true);
-                    }                    
+                    }
+                }
+            }
+
+            // Get neighbors
+            for (var row = 0; row < 50; row++)
+            {
+                for (var col = 0; col < 50; col++)
+                {
+                    cells[row, col].SetNeighbors(cells, row, col);
                 }
             }
         }
@@ -49,62 +59,39 @@ namespace Shared
                 else
                 {
                     timeCount = 0f;
-                    for (var row = 0; row < 50; row++)
+                    foreach (var cell in cells)
                     {
-                        for (var col = 0; col < 50; col++)
+
+                        int nAliveCells = cell.neighbors.Where(x => x.isAlive == true).Count();
+
+                        // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+                        if (cell.isAlive == true && nAliveCells < 2)
                         {
-                            // Get surrounding cells
-                            Cell celTopL, celTopC, celTopR, celMiddleL, /*celMiddleC,*/ celMiddleR, celDownL, celDownC, celDownR;
-
-                            try { celTopL = cells[row - 1, col - 1]; } catch { celTopL = null; }
-                            try { celTopC = cells[row - 1, col]; } catch { celTopC = null; }
-                            try { celTopR = cells[row - 1, col + 1]; } catch { celTopR = null; }
-
-                            try { celMiddleL = cells[row, col - 1]; } catch { celMiddleL = null; }
-                            //try { celMiddleC = cells[row, col]; } catch { celMiddleC = null; }
-                            try { celMiddleR = cells[row, col + 1]; } catch { celMiddleR = null; }
-
-                            try { celDownL = cells[row + 1, col - 1]; } catch { celDownL = null; }
-                            try { celDownC = cells[row + 1, col]; } catch { celDownC = null; }
-                            try { celDownR = cells[row + 1, col + 1]; } catch { celDownR = null; }
-
-                            Cell[] surroundingCells = new Cell[] { celTopL, celTopC, celTopR, celMiddleL, /*celMiddleC,*/ celMiddleR, celDownL, celDownC, celDownR };
-
-                            // check if new cell will be alive
-                            var nAliveCells = surroundingCells
-                                .Where(x => x != null)
-                                .Where(x => x.isAlive == true)
-                                .ToArray()
-                                .Count();
-
-                            // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-                            if (cells[row, col].isAlive == true && nAliveCells < 2)
-                            {
-                                cells[row, col].nextGenerationState = false;
-                            }
-
-                            // Any live cell with two or three live neighbours lives on to the next generation.
-                            if (cells[row, col].isAlive == true && nAliveCells == 2)
-                            {
-                                cells[row, col].nextGenerationState = true;
-                            }
-                            else if (cells[row, col].isAlive == true && nAliveCells == 3)
-                            {
-                                cells[row, col].nextGenerationState = true;
-                            }
-
-                            // Any live cell with more than three live neighbours dies, as if by overpopulation.
-                            if (cells[row, col].isAlive == true && nAliveCells > 3)
-                            {
-                                cells[row, col].nextGenerationState = false;
-                            }
-
-                            // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-                            if (cells[row, col].isAlive == false && nAliveCells == 3)
-                            {
-                                cells[row, col].nextGenerationState = true;
-                            }
+                            cell.nextGenerationState = false;
                         }
+
+                        // Any live cell with two or three live neighbours lives on to the next generation.
+                        if (cell.isAlive == true && nAliveCells == 2)
+                        {
+                            cell.nextGenerationState = true;
+                        }
+                        else if (cell.isAlive == true && nAliveCells == 3)
+                        {
+                            cell.nextGenerationState = true;
+                        }
+
+                        // Any live cell with more than three live neighbours dies, as if by overpopulation.
+                        if (cell.isAlive == true && nAliveCells > 3)
+                        {
+                            cell.nextGenerationState = false;
+                        }
+
+                        // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+                        if (cell.isAlive == false && nAliveCells == 3)
+                        {
+                            cell.nextGenerationState = true;
+                        }
+
                     }
 
                     // apply evolution
