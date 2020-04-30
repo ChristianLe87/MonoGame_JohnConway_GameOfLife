@@ -7,23 +7,33 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Shared
 {
+    public enum State
+    {
+        Dead,
+        Middle,
+        Alive
+    }
+
     public class Cell
     {
         Texture2D aliveTexture;
+        Texture2D middleTexture;
         Texture2D deadTexture;
+
         public Rectangle rectangle;
         public List<Cell> neighbors;
-        public bool isAlive;
+        public State isAlive;
 
-        public bool nextGenerationState;
+        public State nextGenerationState;
 
-        public Cell(Rectangle rectangle, bool isAlive)
+        public Cell(Rectangle rectangle, State isAlive)
         {
             this.rectangle = rectangle;
             this.isAlive = isAlive;
 
-            this.aliveTexture = Tools.CreateColorTexture(Color.Green, rectangle.Width, rectangle.Height);
-            this.deadTexture = Tools.CreateColorTexture(Color.Brown, rectangle.Width, rectangle.Height);
+            this.aliveTexture = Tools.CreateColorTexture(Color.DarkGreen, rectangle.Width, rectangle.Height);
+            this.middleTexture = Tools.CreateColorTexture(Color.Green, rectangle.Width, rectangle.Height);
+            this.deadTexture = Tools.CreateColorTexture(Color.LightGreen, rectangle.Width, rectangle.Height);
         }
 
         internal void Update(MouseState mouseState)
@@ -33,17 +43,21 @@ namespace Shared
 
             if (rectangle.Intersects(new Rectangle(mousePosX, mousePosY, 1, 1)))
             {
-                isAlive = true;
+                isAlive = State.Alive;
             }
         }
 
         internal void Draw(SpriteBatch spriteBatch)
         {
-            if (isAlive)
+            if (isAlive == State.Alive)
             {
                 spriteBatch.Draw(aliveTexture, rectangle, Color.White);
             }
-            else
+            else if(isAlive == State.Middle)
+            {
+                spriteBatch.Draw(middleTexture, rectangle, Color.White);
+            }
+            else if (isAlive == State.Dead)
             {
                 spriteBatch.Draw(deadTexture, rectangle, Color.White);
             }
