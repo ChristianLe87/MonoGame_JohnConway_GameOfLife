@@ -24,28 +24,15 @@ namespace Shared
             this.deadTexture = Tools.CreateColorTexture(Color.Brown, rectangle.Width, rectangle.Height);
         }
 
-        internal void Update()
+        internal void Update(MouseState mouseState)
         {
-            MouseState mouseState = Mouse.GetState();
 
             int mousePosX = mouseState.Position.X;
             int mousePosY = mouseState.Position.Y;
 
-            if (
-                    mousePosX < rectangle.X + 10 &&
-                    mousePosX > rectangle.X &&
-                    mousePosY < rectangle.Y + 10 &&
-                    mousePosY > rectangle.Y
-                )
+            if (rectangle.Intersects(new Rectangle(mousePosX, mousePosY, 1, 1)))
             {
-                if (mouseState.RightButton == ButtonState.Pressed)
-                {
-                    isAlive = false;
-                }
-                else if(mouseState.LeftButton == ButtonState.Pressed)
-                {
-                    isAlive = true;
-                }
+                isAlive = true;
             }
         }
 

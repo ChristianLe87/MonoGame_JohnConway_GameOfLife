@@ -32,12 +32,12 @@ namespace Shared
 
         public void Update(GameTime gameTime)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Keys.P))
+            MouseState mouseState = Mouse.GetState();
+            if (mouseState.RightButton == ButtonState.Pressed || mouseState.LeftButton == ButtonState.Pressed)
             {
                 foreach (var cell in cells)
                 {
-                    cell.Update();
+                    cell.Update(mouseState);
                 }
             }
             else
