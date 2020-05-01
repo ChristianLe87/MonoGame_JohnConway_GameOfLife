@@ -6,7 +6,8 @@ namespace Shared
         public class Scene
         {
             public const string Menu = "SceneMenu";
-            public const string Game = "Scene1";
+            public const string Scene1 = "Scene1";
+            public const string Scene2 = "Scene2";
         }
 
         public class Level

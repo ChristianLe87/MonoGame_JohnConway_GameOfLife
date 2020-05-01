@@ -61,7 +61,6 @@ namespace Shared
                     timeCount = 0f;
                     foreach (var cell in cells)
                     {
-
                         int nAliveCells = cell.neighbors.Where(x => x.isAlive == State.Alive).Count();
 
                         // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
@@ -74,7 +73,6 @@ namespace Shared
                         {
                             cell.nextGenerationState = State.Dead;
                         }
-
 
                         // Any live cell with two or three live neighbours lives on to the next generation.
                         if (cell.isAlive == State.Alive && nAliveCells == 2)

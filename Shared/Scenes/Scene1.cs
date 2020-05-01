@@ -67,51 +67,27 @@ namespace Shared
                         // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
                         if (cell.isAlive == State.Alive && nAliveCells < 2)
                         {
-                            cell.nextGenerationState = State.Middle;
-                        }
-
-                        if (cell.isAlive == State.Middle && nAliveCells < 2)
-                        {
                             cell.nextGenerationState = State.Dead;
                         }
-
 
                         // Any live cell with two or three live neighbours lives on to the next generation.
                         if (cell.isAlive == State.Alive && nAliveCells == 2)
                         {
                             cell.nextGenerationState = State.Alive;
                         }
-                        else if (cell.isAlive == State.Middle && nAliveCells == 2)
-                        {
-                            cell.nextGenerationState = State.Middle;
-                        }
                         else if (cell.isAlive == State.Alive && nAliveCells == 3)
                         {
                             cell.nextGenerationState = State.Alive;
                         }
-                        else if (cell.isAlive == State.Middle && nAliveCells == 3)
-                        {
-                            cell.nextGenerationState = State.Middle;
-                        }
 
                         // Any live cell with more than three live neighbours dies, as if by overpopulation.
                         if (cell.isAlive == State.Alive && nAliveCells > 3)
-                        {
-                            cell.nextGenerationState = State.Middle;
-                        }
-
-                        if (cell.isAlive == State.Middle && nAliveCells > 3)
                         {
                             cell.nextGenerationState = State.Dead;
                         }
 
                         // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
                         if (cell.isAlive == State.Dead && nAliveCells == 3)
-                        {
-                            cell.nextGenerationState = State.Alive;
-                        }
-
-                        if(cell.isAlive == State.Middle && nAliveCells == 3)
                         {
                             cell.nextGenerationState = State.Alive;
                         }
