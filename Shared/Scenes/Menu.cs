@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -8,21 +9,44 @@ namespace Shared
     {
         private ContentManager content;
 
+        Button Game1Button;
+        Button Game2Button;
+
+
         public Menu(ContentManager content)
         {
             this.content = content;
+            Game1Button = new Button(new Rectangle(50, 50, 100, 50),"Game 1", Color.Gray, Color.DarkGray);
+            Game2Button = new Button(new Rectangle(50, 150, 100, 50), "Game 2", Color.Gray, Color.DarkGray);
         }
 
         public void Update(GameTime gameTime)
         {
-            throw new System.NotImplementedException();
+            Game1Button.Update(Game1ButtonLogic);
+            Game2Button.Update(Game2ButtonLogic);
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            throw new System.NotImplementedException();
+            Game1Button.Draw(spriteBatch);
+            Game2Button.Draw(spriteBatch);
+
         }
 
-        
+
+        public void Game1ButtonLogic()
+        {
+            Console.WriteLine("Play");
+            MyGame.actualScene = WK.Scene.Scene1;
+        }
+
+        public void Game2ButtonLogic()
+        {
+            Console.WriteLine("Play");
+            MyGame.actualScene = WK.Scene.Scene2;
+        }
+
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
@@ -9,6 +10,7 @@ namespace Shared
     public class MyGame : Game
     {
         SpriteBatch spriteBatch;
+        public static ContentManager contentManager;
 
         // Levels
         public static string actualScene;
@@ -20,12 +22,11 @@ namespace Shared
         public const int canvasWidth = 500;
         public const int canvasHeight = 500;
 
-        SpriteFont font_3;
-
         public MyGame()
         {
             this.Content.RootDirectory = Environment.CurrentDirectory;
             graphicsDeviceManager = new GraphicsDeviceManager(this);
+            contentManager = this.Content;
 
             // FPS
             this.IsFixedTimeStep = true;
@@ -46,7 +47,7 @@ namespace Shared
 
         protected override void LoadContent()
         {
-            actualScene = WK.Scene.Scene1;
+            actualScene = WK.Scene.Menu;
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -56,7 +57,6 @@ namespace Shared
                 { WK.Scene.Scene2, new Scene2(Content) }
             };
 
-            font_3 = Content.Load<SpriteFont>("Arial_20");
         }
 
 
@@ -82,7 +82,6 @@ namespace Shared
             spriteBatch.Begin();
 
             scenes[actualScene].Draw(spriteBatch);
-            spriteBatch.DrawString(font_3, "hello", new Vector2(50, 65), Color.Black);
 
             spriteBatch.End();
 
