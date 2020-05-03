@@ -104,6 +104,12 @@
     <BundleResource Include="..\Assets\Arial_20.xnb">
       <Link>Resources\Arial_20.xnb</Link>
     </BundleResource>
+    <BundleResource Include="..\Assets\Arial_10.xnb">
+      <Link>Resources\Arial_10.xnb</Link>
+    </BundleResource>
+    <BundleResource Include="..\Assets\Arial_15.xnb">
+      <Link>Resources\Arial_15.xnb</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

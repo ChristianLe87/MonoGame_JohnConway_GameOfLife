@@ -48,6 +48,12 @@
       <Link>Arial_20.xnb</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="..\Assets\Arial_10.xnb">
+      <Link>Arial_10.xnb</Link>
+    </None>
+    <None Include="..\Assets\Arial_15.xnb">
+      <Link>Arial_15.xnb</Link>
+    </None>
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
