@@ -11,6 +11,13 @@ namespace Shared
             public const string About = "About";
         }
 
+        public class Font
+        {
+            public const string Arial_15 = "Arial_15";
+            public const string Arial_10 = "Arial_10";
+            public const string Arial_20 = "Arial_20";
+        }
+
         public class Level
         {
             public static char[,] dis1 = new char[,]

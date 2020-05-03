@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\Scene2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\About.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Scenes\" />
