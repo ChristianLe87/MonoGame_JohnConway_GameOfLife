@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{9454C73B-030B-4100-B3D0-44176E855C31}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{B8A5CFB4-A466-4784-A9DD-12B6B06A7980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{9454C73B-030B-4100-B3D0-44176E855C31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "macOS", "macOS\macOS.csproj", "{B2F444D7-C961-4F61-B716-DAE3D1E18891}"
 EndProject

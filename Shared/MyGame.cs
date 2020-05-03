@@ -20,11 +20,11 @@ namespace Shared
         public const int canvasWidth = 500;
         public const int canvasHeight = 500;
 
+        SpriteFont font_3;
+
         public MyGame()
         {
-            /*string relativePath = $"../../../../MonoGame_JohnConway_GameOfLife/Assets/";
-            string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
-            this.Content.RootDirectory = absolutePath;*/
+            this.Content.RootDirectory = Environment.CurrentDirectory;
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
             // FPS
@@ -55,6 +55,8 @@ namespace Shared
                 { WK.Scene.Scene1, new Scene1(Content) },
                 { WK.Scene.Scene2, new Scene2(Content) }
             };
+
+            font_3 = Content.Load<SpriteFont>("Arial_20");
         }
 
 
@@ -80,6 +82,7 @@ namespace Shared
             spriteBatch.Begin();
 
             scenes[actualScene].Draw(spriteBatch);
+            spriteBatch.DrawString(font_3, "hello", new Vector2(50, 65), Color.Black);
 
             spriteBatch.End();
 
