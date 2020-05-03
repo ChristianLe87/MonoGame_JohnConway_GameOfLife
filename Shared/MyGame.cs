@@ -54,7 +54,8 @@ namespace Shared
             this.scenes = new Dictionary<string, IScene>() {
                 { WK.Scene.Menu, new Menu(Content) },
                 { WK.Scene.Scene1, new Scene1(Content) },
-                { WK.Scene.Scene2, new Scene2(Content) }
+                { WK.Scene.Scene2, new Scene2(Content) },
+                { WK.Scene.About, new About(Content) }
             };
 
         }
