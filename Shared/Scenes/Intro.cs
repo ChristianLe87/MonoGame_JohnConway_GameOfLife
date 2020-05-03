@@ -15,15 +15,16 @@ namespace Shared
 
         public Intro()
         {
-            this.rectangle = new Rectangle(0, 0, 500, 500);
-            this.texture = Tools.CreateColorTexture(Color.Black, 500, 500);
+            this.texture = Tools.GetImageTexture(WK.Image.Intro_560_600_PNG);
+            this.rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+
             this.startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         }
 
         public void Update(GameTime gameTime)
         {
             // wait 3 seconds
-            if (gameTime.TotalGameTime.Seconds > 3)
+            if (gameTime.TotalGameTime.Seconds > 2)
             {
                 MyGame.actualScene = WK.Scene.Menu;
             }

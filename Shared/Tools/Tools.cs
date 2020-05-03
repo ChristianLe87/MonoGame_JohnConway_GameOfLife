@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -19,5 +20,21 @@ namespace Shared
 
             return newTexture;
         }
+
+
+        internal static Texture2D GetImageTexture(string imageName)
+        {
+            string relativePath = $"{imageName}.png";
+            string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
+
+            FileStream fileStream = new FileStream(absolutePath, FileMode.Open);
+
+            var result = Texture2D.FromStream(MyGame.graphicsDeviceManager.GraphicsDevice, fileStream);
+            fileStream.Dispose();
+
+            return result;
+        }
+
+
     }
 }

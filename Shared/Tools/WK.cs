@@ -3,6 +3,10 @@ namespace Shared
 {
     public class WK
     {
+        public class Image
+        {
+            public const string Intro_560_600_PNG = "Intro_560_600_PNG";
+        }
         public class Scene
         {
             public const string Intro = "Intro";
