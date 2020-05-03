@@ -12,7 +12,7 @@ namespace Shared
         Cell[,] cells = new Cell[50, 50];
         float timeCount = 0f;
 
-        public Scene2(ContentManager content)
+        public Scene2()
         {
             // define each cell
             for (var row = 0; row < 50; row++)

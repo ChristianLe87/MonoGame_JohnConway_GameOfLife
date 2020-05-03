@@ -5,6 +5,7 @@ namespace Shared
     {
         public class Scene
         {
+            public const string Intro = "Intro";
             public const string Menu = "SceneMenu";
             public const string Scene1 = "Scene1";
             public const string Scene2 = "Scene2";

@@ -22,15 +22,12 @@ namespace Shared
             "Special thanks to Sascha 'OP'";
 
 
-        private ContentManager content;
-
         Button menuButton;
 
 
-        public About(ContentManager content)
+        public About()
         {
-            this.content = content;
-            this.menuButton = new Button(new Rectangle(50, 50, 100, 50), "Menu", Color.Gray, Color.DarkGray);
+            this.menuButton = new Button(new Rectangle(200, 350, 100, 50), "Menu", Color.Gray, Color.DarkGray);
             this.text = new Text(WK.Font.Arial_15, new Vector2(20, 50), aboutText);
             this.specialThanks = new Text(WK.Font.Arial_10, new Vector2(20, 450), specialThanksText);
         }

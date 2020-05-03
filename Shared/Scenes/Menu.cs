@@ -7,18 +7,15 @@ namespace Shared
 {
     internal class Menu : IScene
     {
-        private ContentManager content;
-
         Button Game1Button;
         Button Game2Button;
         Button AboutButton;
 
-        public Menu(ContentManager content)
+        public Menu()
         {
-            this.content = content;
-            Game1Button = new Button(new Rectangle(50, 50, 100, 50),"Game 1", Color.Gray, Color.DarkGray);
-            Game2Button = new Button(new Rectangle(50, 150, 100, 50), "Game 2", Color.Gray, Color.DarkGray);
-            AboutButton = new Button(new Rectangle(50, 250, 100, 50), "About", Color.Gray, Color.DarkGray);
+            Game1Button = new Button(new Rectangle(200, 100, 100, 50),"Game 1", Color.Gray, Color.DarkGray);
+            Game2Button = new Button(new Rectangle(200, 200, 100, 50), "Game 2", Color.Gray, Color.DarkGray);
+            AboutButton = new Button(new Rectangle(200, 400, 100, 50), "About", Color.Gray, Color.DarkGray);
         }
 
         public void Update(GameTime gameTime)

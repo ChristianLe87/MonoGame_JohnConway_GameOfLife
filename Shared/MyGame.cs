@@ -47,15 +47,16 @@ namespace Shared
 
         protected override void LoadContent()
         {
-            actualScene = WK.Scene.Menu;
+            actualScene = WK.Scene.Intro;
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             this.scenes = new Dictionary<string, IScene>() {
-                { WK.Scene.Menu, new Menu(Content) },
-                { WK.Scene.Scene1, new Scene1(Content) },
-                { WK.Scene.Scene2, new Scene2(Content) },
-                { WK.Scene.About, new About(Content) }
+                { WK.Scene.Intro, new Intro() },
+                { WK.Scene.Menu, new Menu() },
+                { WK.Scene.Scene1, new Scene1() },
+                { WK.Scene.Scene2, new Scene2() },
+                { WK.Scene.About, new About() }
             };
 
         }
