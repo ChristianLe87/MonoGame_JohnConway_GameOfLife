@@ -9,15 +9,20 @@ namespace Shared
 {
     public class Scene2 : IScene
     {
-        Cell[,] cells = new Cell[50, 50];
+        Cell[,] cells;
         float timeCount = 0f;
 
         public Scene2()
         {
+            int numRows = WK.Level.dis1.GetLength(0);
+            int numColumn = WK.Level.dis1.GetLength(1);
+
+            cells = new Cell[numRows, numColumn];
+
             // define each cell
-            for (var row = 0; row < 50; row++)
+            for (var row = 0; row < numRows; row++)
             {
-                for (var col = 0; col < 50; col++)
+                for (var col = 0; col < numColumn; col++)
                 {
                     if (WK.Level.dis1[row, col] == ' ')
                     {
@@ -31,9 +36,9 @@ namespace Shared
             }
 
             // Get neighbors
-            for (var row = 0; row < 50; row++)
+            for (var row = 0; row < numRows; row++)
             {
-                for (var col = 0; col < 50; col++)
+                for (var col = 0; col < numColumn; col++)
                 {
                     cells[row, col].SetNeighbors(cells, row, col);
                 }
