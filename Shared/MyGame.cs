@@ -19,8 +19,8 @@ namespace Shared
         // Statics
         public static GraphicsDeviceManager graphicsDeviceManager;
         public static bool soundEffectsOn = true;
-        public const int canvasWidth = 560;
-        public const int canvasHeight = 600;
+        public const int canvasWidth = 500;
+        public const int canvasHeight = 500;
 
         public MyGame()
         {

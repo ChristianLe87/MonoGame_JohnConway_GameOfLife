@@ -113,6 +113,9 @@
     <BundleResource Include="..\Assets\Intro_560_600_PNG.png">
       <Link>Resources\Intro_560_600_PNG.png</Link>
     </BundleResource>
+    <BundleResource Include="..\Assets\Intro_500_500_PNG.png">
+      <Link>Resources\Intro_500_500_PNG.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

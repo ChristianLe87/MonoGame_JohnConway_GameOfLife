@@ -10,6 +10,8 @@ namespace Shared
         Text text;
         Text specialThanks;
 
+        Texture2D backgroundTexture;
+
         string aboutText =
             "Inspired by the Game Of Life Game,\n" +
             "From the British mathematician John Horton Conway\n\n" +
@@ -27,9 +29,12 @@ namespace Shared
 
         public About()
         {
-            this.menuButton = new Button(new Rectangle(200, 350, 100, 50), "Menu", Color.Gray, Color.DarkGray);
+            this.menuButton = new Button(new Rectangle(200, 350, 100, 50), "Menu", Color.Green, Color.DarkGreen);
+
             this.text = new Text(WK.Font.Arial_15, new Vector2(20, 50), aboutText);
             this.specialThanks = new Text(WK.Font.Arial_10, new Vector2(20, 450), specialThanksText);
+
+            backgroundTexture = Tools.CreateColorTexture(Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
         }
 
         public void Update(GameTime gameTime)
@@ -39,6 +44,8 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(backgroundTexture, new Vector2(0, 0), Color.White);
+
             menuButton.Draw(spriteBatch);
             text.Draw(spriteBatch, Color.Black);
             specialThanks.Draw(spriteBatch, Color.Black);

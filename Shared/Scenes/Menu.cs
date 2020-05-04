@@ -11,11 +11,15 @@ namespace Shared
         Button Game2Button;
         Button AboutButton;
 
+        Texture2D backgroundTexture;
+
         public Menu()
         {
-            Game1Button = new Button(new Rectangle(200, 100, 100, 50),"Game 1", Color.Gray, Color.DarkGray);
-            Game2Button = new Button(new Rectangle(200, 200, 100, 50), "Game 2", Color.Gray, Color.DarkGray);
-            AboutButton = new Button(new Rectangle(200, 400, 100, 50), "About", Color.Gray, Color.DarkGray);
+            Game1Button = new Button(new Rectangle(200, 100, 100, 50),"Game 1", Color.Green, Color.DarkGreen);
+            Game2Button = new Button(new Rectangle(200, 200, 100, 50), "Game 2", Color.Green, Color.DarkGreen);
+            AboutButton = new Button(new Rectangle(200, 400, 100, 50), "About", Color.Green, Color.DarkGreen);
+
+            backgroundTexture = Tools.CreateColorTexture(Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
         }
 
         public void Update(GameTime gameTime)
@@ -27,6 +31,7 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(backgroundTexture, new Vector2(0,0), Color.White);
             Game1Button.Draw(spriteBatch);
             Game2Button.Draw(spriteBatch);
             AboutButton.Draw(spriteBatch);

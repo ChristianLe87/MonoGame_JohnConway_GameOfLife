@@ -5,6 +5,7 @@ namespace Shared
     {
         public class Image
         {
+            public const string Intro_500_500_PNG = "Intro_500_500_PNG";
             public const string Intro_560_600_PNG = "Intro_560_600_PNG";
         }
         public class Scene
