@@ -84,8 +84,8 @@ namespace Shared
             this.scenes = new Dictionary<string, IScene>() {
                 { WK.Scene.Intro, new Intro() },
                 { WK.Scene.Menu, new Menu() },
-                { WK.Scene.Scene1, new Scene1() },
-                { WK.Scene.Scene2, new Scene2() },
+                { WK.Scene.Scene1, new Game_1(GameMode.Classic) },
+                { WK.Scene.Scene2, new Game_1(GameMode.Spicy) },
                 { WK.Scene.About, new About() }
             };
 
@@ -94,8 +94,6 @@ namespace Shared
 
         protected override void Update(GameTime gameTime)
         {
-            Console.WriteLine($"===== Running at FPS: {1f / (gameTime.ElapsedGameTime.Milliseconds / 1000f)} =====");
-
             scenes[actualScene].Update(gameTime);
 
             if (actualScene == WK.Scene.Menu)
