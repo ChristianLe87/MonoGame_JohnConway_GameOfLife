@@ -18,10 +18,16 @@ namespace Shared
         Cell[,] cells;
         float timeCount = 0f;
         GameMode gameMode;
+        Button GoToMenuButton;
 
         public Game_1(GameMode gameMode)
         {
             this.gameMode = gameMode;
+            Reset();
+        }
+        private void Reset()
+        {
+            this.GoToMenuButton = new Button(new Rectangle(5, 5, 70, 30), "Menu", Color.Gray, Color.DarkGray);
 
             int numRows = WK.Level.dis1.GetLength(0);
             int numColumn = WK.Level.dis1.GetLength(1);
@@ -57,6 +63,8 @@ namespace Shared
 
         public void Update(GameTime gameTime)
         {
+            GoToMenuButton.Update(GoToMenuButtonLogic);
+
             MouseState mouseState = Mouse.GetState();
             if (mouseState.RightButton == ButtonState.Pressed || mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -92,10 +100,21 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
             foreach (var cell in cells)
             {
                 cell.Draw(spriteBatch);
             }
+
+            GoToMenuButton.Draw(spriteBatch);
+
+        }
+
+        public void GoToMenuButtonLogic()
+        {
+            Console.WriteLine("Menu");
+            Reset();
+            MyGame.actualScene = WK.Scene.Menu;
         }
 
         private void CellLogic_1(Cell cell)
