@@ -3,9 +3,9 @@ using Shared;
 
 namespace MultiPlatform
 {
-    class MainClass
+    class Program
     {
-        public static void Main()
+        static void Main()
         {
             using (var game = new MyGame())
             {

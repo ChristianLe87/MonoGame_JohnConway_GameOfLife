@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{B8A5CFB4-A466-4784-A9DD-12B6B06A7980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{9454C73B-030B-4100-B3D0-44176E855C31}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "macOS", "macOS\macOS.csproj", "{B2F444D7-C961-4F61-B716-DAE3D1E18891}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9454C73B-030B-4100-B3D0-44176E855C31}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{9454C73B-030B-4100-B3D0-44176E855C31}.Debug|anycpu.Build.0 = Debug|anycpu
-		{9454C73B-030B-4100-B3D0-44176E855C31}.Release|anycpu.ActiveCfg = Release|anycpu
-		{9454C73B-030B-4100-B3D0-44176E855C31}.Release|anycpu.Build.0 = Release|anycpu
-		{B2F444D7-C961-4F61-B716-DAE3D1E18891}.Debug|anycpu.ActiveCfg = Debug|Any CPU
-		{B2F444D7-C961-4F61-B716-DAE3D1E18891}.Debug|anycpu.Build.0 = Debug|Any CPU
-		{B2F444D7-C961-4F61-B716-DAE3D1E18891}.Release|anycpu.ActiveCfg = Release|Any CPU
-		{B2F444D7-C961-4F61-B716-DAE3D1E18891}.Release|anycpu.Build.0 = Release|Any CPU
+		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
