@@ -6,25 +6,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Shared
 {
-    public enum GameMode
-    {
-        Classic,
-        Spicy
-    }
-
     public class Game_1 : IScene
     {
         Cell[,] cells;
         float timeCount = 0f;
-        GameMode gameMode;
         Button GoToMenuButton;
 
-        public Game_1(GameMode gameMode)
-        {
-            this.gameMode = gameMode;
-            Reset();
-        }
-        private void Reset()
+        public void Initialize()
         {
             this.GoToMenuButton = new Button(
                                             rectangle: new Rectangle(5, 5, 70, 30),
@@ -92,8 +80,7 @@ namespace Shared
                     timeCount = 0f;
                     foreach (var cell in cells)
                     {
-                        if (gameMode == GameMode.Classic) CellLogic_1(cell);
-                        if (gameMode == GameMode.Spicy) CellLogic_2(cell);
+                        CellLogic_1(cell);
                     }
 
                     // apply evolution
@@ -103,26 +90,20 @@ namespace Shared
                     }
                 }
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            foreach (var cell in cells)
-            {
-                cell.Draw(spriteBatch);
-            }
+            foreach (var cel in cells) cel.Draw(spriteBatch);
 
             GoToMenuButton.Draw(spriteBatch);
-
         }
 
         public void GoToMenuButtonLogic()
         {
             Console.WriteLine("Menu");
-            Reset();
             MyGame.actualScene = WK.Scene.Menu;
+            MyGame.scenes[MyGame.actualScene].Initialize();
         }
 
         private void CellLogic_1(Cell cell)
@@ -157,64 +138,5 @@ namespace Shared
                 cell.nextGenerationState = State.Alive;
             }
         }
-
-
-        private void CellLogic_2(Cell cell)
-        {
-            int nAliveCells = cell.neighbors.Where(x => x.isAlive == State.Alive).Count();
-
-            // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-            if (cell.isAlive == State.Alive && nAliveCells < 2)
-            {
-                cell.nextGenerationState = State.Middle;
-            }
-
-            if (cell.isAlive == State.Middle && nAliveCells < 2)
-            {
-                cell.nextGenerationState = State.Dead;
-            }
-
-            // Any live cell with two or three live neighbours lives on to the next generation.
-            if (cell.isAlive == State.Alive && nAliveCells == 2)
-            {
-                cell.nextGenerationState = State.Alive;
-            }
-            else if (cell.isAlive == State.Middle && nAliveCells == 2)
-            {
-                cell.nextGenerationState = State.Middle;
-            }
-            else if (cell.isAlive == State.Alive && nAliveCells == 3)
-            {
-                cell.nextGenerationState = State.Alive;
-            }
-            else if (cell.isAlive == State.Middle && nAliveCells == 3)
-            {
-                cell.nextGenerationState = State.Middle;
-            }
-
-            // Any live cell with more than three live neighbours dies, as if by overpopulation.
-            if (cell.isAlive == State.Alive && nAliveCells > 3)
-            {
-                cell.nextGenerationState = State.Middle;
-            }
-
-            if (cell.isAlive == State.Middle && nAliveCells > 3)
-            {
-                cell.nextGenerationState = State.Dead;
-            }
-
-            // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-            if (cell.isAlive == State.Dead && nAliveCells == 3)
-            {
-                cell.nextGenerationState = State.Alive;
-            }
-
-            if (cell.isAlive == State.Middle && nAliveCells == 3)
-            {
-                cell.nextGenerationState = State.Alive;
-            }
-        }
-
-        
     }
 }

@@ -25,17 +25,16 @@ namespace Shared
 
         Button menuButton;
 
-
-        public About()
+        public void Initialize()
         {
             this.menuButton = new Button(
-                                    rectangle: new Rectangle(200, 350, 100, 50),
-                                    text: "Menu",
-                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
-                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
-                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
-                                    fontColor: Color.Black
-                                    );
+                                        rectangle: new Rectangle(200, 350, 100, 50),
+                                        text: "Menu",
+                                        defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
+                                        mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                        spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                        fontColor: Color.Black
+                                        );
 
             this.text = new Label(new Rectangle(20, 20, 200, 200), Tools.GetFont(MyGame.contentManager, WK.Font.Arial_15), aboutText, Label.TextAlignment.Midle_Center, Color.Black);
             this.specialThanks = new Label(new Rectangle(20, 450, 200, 200), Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10), specialThanksText, Label.TextAlignment.Midle_Center, Color.Black);
@@ -61,8 +60,7 @@ namespace Shared
         {
             Console.WriteLine("Menu");
             MyGame.actualScene = WK.Scene.Menu;
+            MyGame.scenes[MyGame.actualScene].Initialize();
         }
-
-
     }
 }

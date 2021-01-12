@@ -14,7 +14,7 @@ namespace Shared
 
         // Levels
         public static string actualScene;
-        Dictionary<string, IScene> scenes;
+        public static Dictionary<string, IScene> scenes;
 
         // Statics
         public static GraphicsDeviceManager graphicsDeviceManager;
@@ -45,10 +45,10 @@ namespace Shared
             MyGame.actualScene = WK.Scene.Intro;
 
 
-            this.scenes = new Dictionary<string, IScene>() {
+            MyGame.scenes = new Dictionary<string, IScene>() {
                 { WK.Scene.Intro, new Intro() },
                 { WK.Scene.Menu, new Menu() },
-                { WK.Scene.Scene1, new Game_1(GameMode.Classic) },
+                { WK.Scene.Scene1, new Game_1() },
                 //{ WK.Scene.Scene2, new Game_1(GameMode.Spicy) },
                 { WK.Scene.About, new About() }
             };
@@ -65,7 +65,7 @@ namespace Shared
 
         protected override void Update(GameTime gameTime)
         {
-            this.scenes[actualScene].Update(gameTime);
+            MyGame.scenes[actualScene].Update(gameTime);
 
             if (actualScene == WK.Scene.Menu)
                 this.IsMouseVisible = true;

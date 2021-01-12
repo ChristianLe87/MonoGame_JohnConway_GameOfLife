@@ -6,27 +6,16 @@ namespace Shared
 {
     internal class Menu : IScene
     {
-        Button Game1Button;
-        Button Game2Button;
+        Button GameButton;
         Button AboutButton;
 
         Texture2D backgroundTexture;
 
-        public Menu()
+        public void Initialize()
         {
-            Game1Button = new Button(
+            GameButton = new Button(
                                     rectangle: new Rectangle(200, 100, 100, 50),
                                     text: "Game 1",
-                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
-                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
-                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
-                                    fontColor: Color.Black
-                                    );
-
-
-            Game2Button = new Button(
-                                    rectangle: new Rectangle(200, 200, 100, 50),
-                                    text: "Game 2",
                                     defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
                                     mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
                                     spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
@@ -47,16 +36,14 @@ namespace Shared
 
         public void Update(GameTime gameTime)
         {
-            Game1Button.Update(Game1ButtonLogic);
-            Game2Button.Update(Game2ButtonLogic);
+            GameButton.Update(Game1ButtonLogic);
             AboutButton.Update(AboutButtonLogic);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(backgroundTexture, new Vector2(0, 0), Color.White);
-            Game1Button.Draw(spriteBatch);
-            Game2Button.Draw(spriteBatch);
+            GameButton.Draw(spriteBatch);
             AboutButton.Draw(spriteBatch);
         }
 
@@ -65,19 +52,14 @@ namespace Shared
         {
             Console.WriteLine("Play");
             MyGame.actualScene = WK.Scene.Scene1;
-        }
-
-        public void Game2ButtonLogic()
-        {
-            Console.WriteLine("Play");
-            MyGame.actualScene = WK.Scene.Scene2;
+            MyGame.scenes[MyGame.actualScene].Initialize();
         }
 
         public void AboutButtonLogic()
         {
             Console.WriteLine("About");
             MyGame.actualScene = WK.Scene.About;
+            MyGame.scenes[MyGame.actualScene].Initialize();
         }
-
     }
 }

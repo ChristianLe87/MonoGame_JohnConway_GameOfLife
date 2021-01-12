@@ -11,8 +11,12 @@ namespace Shared
 
         long startTime;
 
-
         public Intro()
+        {
+            Initialize();
+        }
+
+        public void Initialize()
         {
             this.texture = Tools.GetTexture(MyGame.graphicsDeviceManager.GraphicsDevice, MyGame.contentManager, WK.Image.Intro_500_500_PNG);
             this.rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
@@ -26,6 +30,7 @@ namespace Shared
             if (gameTime.TotalGameTime.Seconds > 2)
             {
                 MyGame.actualScene = WK.Scene.Menu;
+                MyGame.scenes[MyGame.actualScene].Initialize();
             }
         }
 
@@ -33,6 +38,5 @@ namespace Shared
         {
             spriteBatch.Draw(texture, rectangle, Color.White);
         }
-
     }
 }
