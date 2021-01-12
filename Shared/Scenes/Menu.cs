@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
@@ -15,9 +14,33 @@ namespace Shared
 
         public Menu()
         {
-            Game1Button = new Button(new Rectangle(200, 100, 100, 50),"Game 1", Color.Green, Color.DarkGreen);
-            Game2Button = new Button(new Rectangle(200, 200, 100, 50), "Game 2", Color.Green, Color.DarkGreen);
-            AboutButton = new Button(new Rectangle(200, 400, 100, 50), "About", Color.Green, Color.DarkGreen);
+            Game1Button = new Button(
+                                    rectangle: new Rectangle(200, 100, 100, 50),
+                                    text: "Game 1",
+                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
+                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                    fontColor: Color.Black
+                                    );
+
+
+            Game2Button = new Button(
+                                    rectangle: new Rectangle(200, 200, 100, 50),
+                                    text: "Game 2",
+                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
+                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                    fontColor: Color.Black
+                                    );
+
+            AboutButton = new Button(
+                                    rectangle: new Rectangle(200, 400, 100, 50),
+                                    text: "About",
+                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
+                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                    fontColor: Color.Black
+                                    );
 
             backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
         }
@@ -31,7 +54,7 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(backgroundTexture, new Vector2(0,0), Color.White);
+            spriteBatch.Draw(backgroundTexture, new Vector2(0, 0), Color.White);
             Game1Button.Draw(spriteBatch);
             Game2Button.Draw(spriteBatch);
             AboutButton.Draw(spriteBatch);

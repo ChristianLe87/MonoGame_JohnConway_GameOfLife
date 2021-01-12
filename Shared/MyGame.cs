@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using System.Text.RegularExpressions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -27,10 +25,10 @@ namespace Shared
         public MyGame()
         {
             // Window
-            graphicsDeviceManager = new GraphicsDeviceManager(this);
-            graphicsDeviceManager.PreferredBackBufferWidth = canvasWidth;
-            graphicsDeviceManager.PreferredBackBufferHeight = canvasHeight;
-            graphicsDeviceManager.ApplyChanges();
+            MyGame.graphicsDeviceManager = new GraphicsDeviceManager(this);
+            MyGame.graphicsDeviceManager.PreferredBackBufferWidth = canvasWidth;
+            MyGame.graphicsDeviceManager.PreferredBackBufferHeight = canvasHeight;
+            MyGame.graphicsDeviceManager.ApplyChanges();
 
             // FPS
             base.IsFixedTimeStep = true;
@@ -44,14 +42,14 @@ namespace Shared
 
             base.IsMouseVisible = true;
 
-            actualScene = WK.Scene.Menu;
+            MyGame.actualScene = WK.Scene.Intro;
 
 
             this.scenes = new Dictionary<string, IScene>() {
                 { WK.Scene.Intro, new Intro() },
                 { WK.Scene.Menu, new Menu() },
                 { WK.Scene.Scene1, new Game_1(GameMode.Classic) },
-                { WK.Scene.Scene2, new Game_1(GameMode.Spicy) },
+                //{ WK.Scene.Scene2, new Game_1(GameMode.Spicy) },
                 { WK.Scene.About, new About() }
             };
 
@@ -61,13 +59,13 @@ namespace Shared
 
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
 
         protected override void Update(GameTime gameTime)
         {
-            scenes[actualScene].Update(gameTime);
+            this.scenes[actualScene].Update(gameTime);
 
             if (actualScene == WK.Scene.Menu)
                 this.IsMouseVisible = true;

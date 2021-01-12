@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -27,7 +26,16 @@ namespace Shared
         }
         private void Reset()
         {
-            this.GoToMenuButton = new Button(new Rectangle(5, 5, 70, 30), "Menu", Color.Gray, Color.DarkGray);
+            this.GoToMenuButton = new Button(
+                                            rectangle: new Rectangle(5, 5, 70, 30),
+                                            text: "Menu",
+                                            defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Gray, 10, 10),
+                                            mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGray, 10, 10),
+                                            spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                            fontColor: Color.Black
+                                            );
+
+
 
             int numRows = WK.Level.dis1.GetLength(0);
             int numColumn = WK.Level.dis1.GetLength(1);

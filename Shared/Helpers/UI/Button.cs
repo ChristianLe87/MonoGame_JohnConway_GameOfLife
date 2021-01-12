@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -12,21 +11,18 @@ namespace Shared
         Texture2D mouseOverTexture;
         MouseState previousMouseState;
         bool isMouseOver;
-
-        string text;
-        SpriteFont spriteFont;
+        Label label;
 
         public delegate void DxOnClickAction();
 
-        public Button(Rectangle rectangle, string text, Color defaultColor, Color mouseOverColor)
+        public Button(Rectangle rectangle, string text, Texture2D defaultTexture, Texture2D mouseOverTexture, SpriteFont spriteFont, Color fontColor)
         {
             this.rectangle = rectangle;
-            this.text = text;
-            this.defaultTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, defaultColor, 1, 1);
-            this.mouseOverTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, mouseOverColor, 1, 1);
+            this.defaultTexture = defaultTexture;
+            this.mouseOverTexture = mouseOverTexture;
             this.isMouseOver = false;
-            this.spriteFont = MyGame.contentManager.Load<SpriteFont>("Arial_20");
 
+            this.label = new Label(rectangle, spriteFont, text, Label.TextAlignment.Midle_Center, fontColor);
         }
 
         public void Update(DxOnClickAction OnClickAction)
@@ -59,9 +55,7 @@ namespace Shared
             else
                 spriteBatch.Draw(defaultTexture, rectangle, Color.White);
 
-
-            spriteBatch.DrawString(spriteFont, text, new Vector2(rectangle.X, rectangle.Y), Color.Black);
-
+            label.Draw(spriteBatch);
         }
     }
 }
