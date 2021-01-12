@@ -22,8 +22,8 @@ namespace Shared
         {
             this.rectangle = rectangle;
             this.text = text;
-            this.defaultTexture = Tools.CreateColorTexture(defaultColor, 1, 1);
-            this.mouseOverTexture = Tools.CreateColorTexture(mouseOverColor, 1, 1);
+            this.defaultTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, defaultColor, 1, 1);
+            this.mouseOverTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, mouseOverColor, 1, 1);
             this.isMouseOver = false;
             this.spriteFont = MyGame.contentManager.Load<SpriteFont>("Arial_20");
 

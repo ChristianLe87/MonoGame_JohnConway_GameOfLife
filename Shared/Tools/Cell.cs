@@ -31,9 +31,9 @@ namespace Shared
             this.rectangle = rectangle;
             this.isAlive = isAlive;
 
-            this.aliveTexture = Tools.CreateColorTexture(Color.DarkGreen, rectangle.Width, rectangle.Height);
-            this.middleTexture = Tools.CreateColorTexture(Color.Green, rectangle.Width, rectangle.Height);
-            this.deadTexture = Tools.CreateColorTexture(Color.LightGreen, rectangle.Width, rectangle.Height);
+            this.aliveTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, rectangle.Width, rectangle.Height);
+            this.middleTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, rectangle.Width, rectangle.Height);
+            this.deadTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, rectangle.Width, rectangle.Height);
         }
 
         internal void Update(MouseState mouseState)

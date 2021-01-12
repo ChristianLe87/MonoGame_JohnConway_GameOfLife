@@ -1,62 +1,47 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
 {
     public class Tools
     {
-        public static Texture2D CreateColorTexture(Color color, int width, int height)
+        /// <summary>
+        /// Create a new Texture2D from a Color
+        /// </summary>
+        public static Texture2D CreateColorTexture(GraphicsDevice graphicsDevice, Color color, int Width = 1, int Height = 1)
         {
-            Texture2D newTexture = new Texture2D(MyGame.graphicsDeviceManager.GraphicsDevice, width, height, false, SurfaceFormat.Color);
-            Color[] colorData = new Color[width * height];
-            for (int i = 0; i < width * height; i++)
-            {
-                colorData[i] = color;
-            }
+            Texture2D texture2D = new Texture2D(graphicsDevice, Width, Height, false, SurfaceFormat.Color);
+            Color[] colors = new Color[Width * Height];
 
-            newTexture.SetData(colorData);
+            // Set each pixel to color
+            colors = colors
+                        .Select(x => x = color)
+                        .ToArray();
 
-            return newTexture;
+            texture2D.SetData(colors);
+
+            return texture2D;
         }
 
-
-        internal static Texture2D GetImageTexture(string imageName)
+        /// <summary>
+        /// Generate a new texture from a PNG file
+        /// </summary>
+        public static Texture2D GetTexture(GraphicsDevice graphicsDevice, ContentManager contentManager, string imageName, string folder = "")
         {
-            string relativePath = $"{imageName}.png";
-
-
-
-#if __MACOS__
-            string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
-#else
-            string s1 = Assembly.GetExecutingAssembly().Location;
-            string s2 = Assembly.GetExecutingAssembly().ManifestModule.Name;
-            bool first = true;
-            string absolutePath = Regex.Replace(s1, s2, (m) => {
-                if (first)
-                {
-                    first = false;
-                    return "";
-                }
-                return s2;
-            });
-            absolutePath = absolutePath + relativePath;
-#endif
-
-
+            string absolutePath = new DirectoryInfo(Path.Combine(Path.Combine(contentManager.RootDirectory, folder), $"{imageName}.png")).ToString();
 
             FileStream fileStream = new FileStream(absolutePath, FileMode.Open);
 
-            var result = Texture2D.FromStream(MyGame.graphicsDeviceManager.GraphicsDevice, fileStream);
+            var result = Texture2D.FromStream(graphicsDevice, fileStream);
             fileStream.Dispose();
 
             return result;
         }
-
-
     }
 }

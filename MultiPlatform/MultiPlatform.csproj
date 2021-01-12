@@ -8,5 +8,31 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Content\Intro_500_500_PNG.png">
+      <Link>Content\Intro_500_500_PNG.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Content\Arial_20.xnb">
+      <Link>Content\Arial_20.xnb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Content\Arial_10.xnb">
+      <Link>Content\Arial_10.xnb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Content\Arial_15.xnb">
+      <Link>Content\Arial_15.xnb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Content\Intro_560_600_PNG.png">
+      <Link>Content\Intro_560_600_PNG.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Content\Logo_300_300_PNG.png">
+      <Link>Content\Logo_300_300_PNG.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
 </Project>

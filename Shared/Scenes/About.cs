@@ -34,7 +34,7 @@ namespace Shared
             this.text = new Text(WK.Font.Arial_15, new Vector2(20, 50), aboutText);
             this.specialThanks = new Text(WK.Font.Arial_10, new Vector2(20, 450), specialThanksText);
 
-            backgroundTexture = Tools.CreateColorTexture(Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
+            backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
         }
 
         public void Update(GameTime gameTime)

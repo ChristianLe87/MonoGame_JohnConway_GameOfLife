@@ -15,7 +15,7 @@ namespace Shared
 
         public Intro()
         {
-            this.texture = Tools.GetImageTexture(WK.Image.Intro_500_500_PNG);
+            this.texture = Tools.GetTexture(MyGame.graphicsDeviceManager.GraphicsDevice, MyGame.contentManager, WK.Image.Intro_500_500_PNG);
             this.rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
 
             this.startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();

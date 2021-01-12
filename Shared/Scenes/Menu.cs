@@ -19,7 +19,7 @@ namespace Shared
             Game2Button = new Button(new Rectangle(200, 200, 100, 50), "Game 2", Color.Green, Color.DarkGreen);
             AboutButton = new Button(new Rectangle(200, 400, 100, 50), "About", Color.Green, Color.DarkGreen);
 
-            backgroundTexture = Tools.CreateColorTexture(Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
+            backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
         }
 
         public void Update(GameTime gameTime)
