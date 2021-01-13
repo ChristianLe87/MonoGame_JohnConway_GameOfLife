@@ -20,7 +20,7 @@ namespace Shared
             "I need a designer...";
 
         string specialThanksText =
-            "Special thanks to Sascha 'OP'";
+            "-> Special thanks to Sascha 'OP'";
 
 
         Button menuButton;
@@ -30,16 +30,30 @@ namespace Shared
             this.menuButton = new Button(
                                         rectangle: new Rectangle(200, 350, 100, 50),
                                         text: "Menu",
-                                        defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
-                                        mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                        defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green),
+                                        mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen),
                                         spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
                                         fontColor: Color.Black
                                         );
 
-            this.text = new Label(new Rectangle(20, 20, 200, 200), Tools.GetFont(MyGame.contentManager, WK.Font.Arial_15), aboutText, Label.TextAlignment.Midle_Center, Color.Black);
-            this.specialThanks = new Label(new Rectangle(20, 450, 200, 200), Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10), specialThanksText, Label.TextAlignment.Midle_Center, Color.Black);
+            this.text = new Label(
+                                rectangle: new Rectangle(0, 100, WK.Default.CanvasWidth, WK.Default.CanvasHeight - 300),
+                                spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_15),
+                                text: aboutText,
+                                textAlignment: Label.TextAlignment.Top_Center,
+                                fontColor: Color.Black,
+                                lineSpacing: 20
+                                );
 
-            backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, MyGame.canvasHeight, MyGame.canvasWidth);
+            this.specialThanks = new Label(
+                                        rectangle: new Rectangle(0, 0, WK.Default.CanvasWidth, WK.Default.CanvasHeight),
+                                        spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                        text: specialThanksText,
+                                        textAlignment: Label.TextAlignment.Down_Left,
+                                        fontColor: Color.Black
+                                        );
+
+            backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, WK.Default.CanvasHeight, WK.Default.CanvasWidth);
         }
 
         public void Update(GameTime gameTime)

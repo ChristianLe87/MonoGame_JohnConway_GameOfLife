@@ -3,11 +3,18 @@ namespace Shared
 {
     public class WK
     {
+        public class Default
+        {
+            public const int CanvasWidth = 500;
+            public const int CanvasHeight = 500;
+        }
+
         public class Image
         {
             public const string Intro_500_500_PNG = "Intro_500_500_PNG";
             public const string Intro_560_600_PNG = "Intro_560_600_PNG";
         }
+
         public class Scene
         {
             public const string Intro = "Intro";

@@ -19,15 +19,13 @@ namespace Shared
         // Statics
         public static GraphicsDeviceManager graphicsDeviceManager;
         public static bool soundEffectsOn = true;
-        public const int canvasWidth = 500;
-        public const int canvasHeight = 500;
 
         public MyGame()
         {
             // Window
             MyGame.graphicsDeviceManager = new GraphicsDeviceManager(this);
-            MyGame.graphicsDeviceManager.PreferredBackBufferWidth = canvasWidth;
-            MyGame.graphicsDeviceManager.PreferredBackBufferHeight = canvasHeight;
+            MyGame.graphicsDeviceManager.PreferredBackBufferWidth = WK.Default.CanvasWidth;
+            MyGame.graphicsDeviceManager.PreferredBackBufferHeight = WK.Default.CanvasHeight;
             MyGame.graphicsDeviceManager.ApplyChanges();
 
             // FPS
@@ -43,7 +41,6 @@ namespace Shared
             base.IsMouseVisible = true;
 
             MyGame.actualScene = WK.Scene.Intro;
-
 
             MyGame.scenes = new Dictionary<string, IScene>() {
                 { WK.Scene.Intro, new Intro() },
