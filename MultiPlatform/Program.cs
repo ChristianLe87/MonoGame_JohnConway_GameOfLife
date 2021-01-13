@@ -1,11 +1,10 @@
-﻿using System;
-using Shared;
+﻿using Shared;
 
 namespace MultiPlatform
 {
-    class Program
+    class MainClass
     {
-        static void Main()
+        public static void Main(string[] args)
         {
             using (var game = new MyGame())
             {

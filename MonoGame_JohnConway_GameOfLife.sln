@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{B8A5CFB4-A466-4784-A9DD-12B6B06A7980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{5C4F506F-4B4C-4F9F-A485-4E891498415F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Debug|anycpu.ActiveCfg = Debug|Any CPU
-		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Debug|anycpu.Build.0 = Debug|Any CPU
-		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Release|anycpu.ActiveCfg = Release|Any CPU
-		{E9EB6007-EF53-4E44-BDC1-44DAFEB01426}.Release|anycpu.Build.0 = Release|Any CPU
+		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Debug|anycpu.Build.0 = Debug|anycpu
+		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Release|anycpu.ActiveCfg = Release|anycpu
+		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
