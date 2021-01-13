@@ -16,9 +16,8 @@ namespace Shared
 
     public class Cell
     {
-        Texture2D aliveTexture;
-        Texture2D middleTexture;
-        Texture2D deadTexture;
+        public Texture2D aliveTexture;
+        public Texture2D deadTexture;
 
         public Rectangle rectangle;
         public List<Cell> neighbors;
@@ -26,15 +25,14 @@ namespace Shared
 
         public State nextGenerationState;
 
-        public Cell(Rectangle rectangle, State isAlive)
+        /*public Cell(Rectangle rectangle, State isAlive, Texture2D aliveTexture, Texture2D deadTexture)
         {
             this.rectangle = rectangle;
             this.isAlive = isAlive;
 
-            this.aliveTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, rectangle.Width, rectangle.Height);
-            this.middleTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, rectangle.Width, rectangle.Height);
-            this.deadTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, rectangle.Width, rectangle.Height);
-        }
+            this.aliveTexture = aliveTexture;
+            this.deadTexture = deadTexture;
+        }*/
 
         internal void Update(MouseState mouseState)
         {
@@ -52,10 +50,6 @@ namespace Shared
             if (isAlive == State.Alive)
             {
                 spriteBatch.Draw(aliveTexture, rectangle, Color.White);
-            }
-            else if(isAlive == State.Middle)
-            {
-                spriteBatch.Draw(middleTexture, rectangle, Color.White);
             }
             else if (isAlive == State.Dead)
             {

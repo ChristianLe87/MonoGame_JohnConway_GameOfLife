@@ -49,7 +49,6 @@ namespace Shared
                 { WK.Scene.Intro, new Intro() },
                 { WK.Scene.Menu, new Menu() },
                 { WK.Scene.Scene1, new Game_1() },
-                //{ WK.Scene.Scene2, new Game_1(GameMode.Spicy) },
                 { WK.Scene.About, new About() }
             };
 

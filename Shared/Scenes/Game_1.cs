@@ -14,6 +14,9 @@ namespace Shared
 
         public void Initialize()
         {
+            Texture2D aliveTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen);//, 10, 10);
+            Texture2D deadTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen);//, 10, 10);
+
             this.GoToMenuButton = new Button(
                                             rectangle: new Rectangle(5, 5, 70, 30),
                                             text: "Menu",
@@ -38,11 +41,21 @@ namespace Shared
                 {
                     if (WK.Level.dis1[row, col] == ' ')
                     {
-                        cells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), State.Dead);
+                        var cell = new Cell();
+                        cell.rectangle = new Rectangle(col * 10, row * 10, 10, 10);
+                        cell.isAlive = State.Dead;
+                        cell.aliveTexture = aliveTexture;
+                        cell.deadTexture = deadTexture;
+                        cells[row, col] = cell;
                     }
                     else if (WK.Level.dis1[row, col] == 'x')
                     {
-                        cells[row, col] = new Cell(new Rectangle(col * 10, row * 10, 10, 10), State.Alive);
+                        var cell = new Cell();
+                        cell.rectangle = new Rectangle(col * 10, row * 10, 10, 10);
+                        cell.isAlive = State.Alive;
+                        cell.aliveTexture = aliveTexture;
+                        cell.deadTexture = deadTexture;
+                        cells[row, col] = cell;
                     }
                 }
             }
