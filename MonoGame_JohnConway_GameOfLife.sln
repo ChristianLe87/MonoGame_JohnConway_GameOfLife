@@ -5,6 +5,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{5C4F506F-4B4C-4F9F-A485-4E891498415F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "macOS", "macOS\macOS.csproj", "{CCF4FC4F-6847-4E7F-BB44-EDE69528DB06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -15,6 +17,10 @@ Global
 		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Debug|anycpu.Build.0 = Debug|anycpu
 		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Release|anycpu.ActiveCfg = Release|anycpu
 		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Release|anycpu.Build.0 = Release|anycpu
+		{CCF4FC4F-6847-4E7F-BB44-EDE69528DB06}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{CCF4FC4F-6847-4E7F-BB44-EDE69528DB06}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{CCF4FC4F-6847-4E7F-BB44-EDE69528DB06}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{CCF4FC4F-6847-4E7F-BB44-EDE69528DB06}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

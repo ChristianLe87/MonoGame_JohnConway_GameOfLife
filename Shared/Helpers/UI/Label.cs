@@ -50,24 +50,26 @@ namespace Shared
             int PosMiddle_Y = rectangle.Center.Y - (((int)spriteFont.MeasureString(text).Y) / 2);
             int PosDown_Y = rectangle.Y + rectangle.Height - ((int)spriteFont.MeasureString(text).Y);
 
-            return textAlignment switch
+
+            switch (textAlignment)
             {
                 // Left
-                TextAlignment.Top_Left => new Vector2(PosLeft_X, PosTop_Y),
-                TextAlignment.Midle_Left => new Vector2(PosLeft_X, PosMiddle_Y),
-                TextAlignment.Down_Left => new Vector2(PosLeft_X, PosDown_Y),
+                case TextAlignment.Top_Left: return new Vector2(PosLeft_X, PosTop_Y);
+                case TextAlignment.Midle_Left: return new Vector2(PosLeft_X, PosMiddle_Y);
+                case TextAlignment.Down_Left: return new Vector2(PosLeft_X, PosDown_Y);
 
                 // Center
-                TextAlignment.Top_Center => new Vector2(PosCenter_X, PosTop_Y),
-                TextAlignment.Midle_Center => new Vector2(PosCenter_X, PosMiddle_Y),
-                TextAlignment.Down_Center => new Vector2(PosCenter_X, PosDown_Y),
+                case TextAlignment.Top_Center: return new Vector2(PosCenter_X, PosTop_Y);
+                case TextAlignment.Midle_Center: return new Vector2(PosCenter_X, PosMiddle_Y);
+                case TextAlignment.Down_Center: return new Vector2(PosCenter_X, PosDown_Y);
 
                 // Right
-                TextAlignment.Top_Right => new Vector2(PosRight_X, PosTop_Y),
-                TextAlignment.Midle_Right => new Vector2(PosRight_X, PosMiddle_Y),
-                TextAlignment.Down_Right => new Vector2(PosRight_X, PosDown_Y),
-                _ => new Vector2(),
-            };
+                case TextAlignment.Top_Right: return new Vector2(PosRight_X, PosTop_Y);
+                case TextAlignment.Midle_Right: return new Vector2(PosRight_X, PosMiddle_Y);
+                case TextAlignment.Down_Right: return new Vector2(PosRight_X, PosDown_Y);
+
+                default: return new Vector2();
+            }
         }
 
         public enum TextAlignment

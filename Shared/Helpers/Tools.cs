@@ -31,7 +31,7 @@ namespace Shared
         {
             // ===== Implementation =====
             {
-                List<FontChar> fontChars = GetFontChar(chars);
+                List<FontChar> fontChars = GetFontChar();
 
                 // The line spacing (the distance from baseline to baseline) of the font
                 List<char> characters = fontChars.Select(x => x.c).ToList();
@@ -60,7 +60,7 @@ namespace Shared
             }
 
             // ===== Helpers =====
-            List<FontChar> GetFontChar(char[,] chars)
+            List<FontChar> GetFontChar()
             {
                 List<FontChar> fontChars = new List<FontChar>();
                 for (int col = 0; col < chars.GetLength(0); col++)
