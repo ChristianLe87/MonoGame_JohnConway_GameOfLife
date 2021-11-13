@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCF4FC4F-6847-4E7F-BB44-EDE69528DB06}</ProjectGuid>
+    <ProjectGuid>{4BDBB0E6-55B6-4453-9D1F-5803D6E6EFB1}</ProjectGuid>
     <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>macOS</RootNamespace>
-    <AssemblyName>macOS</AssemblyName>
+    <AssemblyName>JohnConway_GameOfLife</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
@@ -27,9 +27,7 @@
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
-    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
-    <LinkMode>None</LinkMode>
-    <XamMacArch>x86_64</XamMacArch>
+    <HttpClientHandler></HttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -46,8 +44,7 @@
     <UseRefCounting>true</UseRefCounting>
     <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
     <LinkMode>SdkOnly</LinkMode>
-    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
-    <LangVersion>latestmajor</LangVersion>
+    <HttpClientHandler></HttpClientHandler>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -91,6 +88,10 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <NativeReference Include="..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\runtimes\osx\native\libopenal.1.dylib">
+      <Kind>Dynamic</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
     <NativeReference Include="..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\runtimes\osx\native\libSDL2-2.0.0.dylib">
       <Kind>Dynamic</Kind>
       <SmartLink>False</SmartLink>
@@ -98,27 +99,27 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="..\Content\Intro_500_500_PNG.png">
-      <Link>Content\Intro_500_500_PNG.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\Content\Intro_560_600_PNG.png">
-      <Link>Content\Intro_560_600_PNG.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\Content\Logo_300_300_PNG.png">
-      <Link>Content\Logo_300_300_PNG.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\Content\Arial_10.xnb">
-      <Link>Content\Arial_10.xnb</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\Content\Arial_15.xnb">
-      <Link>Content\Arial_15.xnb</Link>
+      <Link>Resources\Content\Intro_500_500_PNG.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="..\Content\Arial_20.xnb">
-      <Link>Content\Arial_20.xnb</Link>
+      <Link>Resources\Content\Arial_20.xnb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Content\Arial_10.xnb">
+      <Link>Resources\Content\Arial_10.xnb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Content\Arial_15.xnb">
+      <Link>Resources\Content\Arial_15.xnb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Content\Intro_560_600_PNG.png">
+      <Link>Resources\Content\Intro_560_600_PNG.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Content\Logo_300_300_PNG.png">
+      <Link>Resources\Content\Logo_300_300_PNG.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
   </ItemGroup>

@@ -6,7 +6,7 @@
     <ProjectGuid>{5C4F506F-4B4C-4F9F-A485-4E891498415F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MultiPlatform</RootNamespace>
-    <AssemblyName>MultiPlatform</AssemblyName>
+    <AssemblyName>JohnConway_GameOfLife</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
@@ -41,7 +41,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="..\Content\Intro_500_500_PNG.png">
       <Link>Content\Intro_500_500_PNG.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -66,6 +65,7 @@
       <Link>Content\Logo_300_300_PNG.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
