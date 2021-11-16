@@ -28,6 +28,9 @@
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <HttpClientHandler></HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <AOTMode>None</AOTMode>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,6 +48,8 @@
     <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
     <LinkMode>SdkOnly</LinkMode>
     <HttpClientHandler></HttpClientHandler>
+    <AOTMode>None</AOTMode>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,6 +57,9 @@
     <Reference Include="Xamarin.Mac" />
     <Reference Include="MonoGame.Framework">
       <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\lib\netstandard2.0\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +131,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
   </ItemGroup>
+  <Import Project="..\..\Monogame_Christian_Tools\ChristianTools.Tools\ChristianTools.Tools.projitems" Label="Shared" Condition="Exists('..\..\Monogame_Christian_Tools\ChristianTools.Tools\ChristianTools.Tools.projitems')" />
+  <Import Project="..\..\Monogame_Christian_Tools\ChristianTools.UI\ChristianTools.UI.projitems" Label="Shared" Condition="Exists('..\..\Monogame_Christian_Tools\ChristianTools.UI\ChristianTools.UI.projitems')" />
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\build\MonoGame.Framework.DesktopGL.targets" Condition="Exists('..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\build\MonoGame.Framework.DesktopGL.targets')" />

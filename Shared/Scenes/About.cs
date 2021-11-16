@@ -1,4 +1,6 @@
 ﻿using System;
+using ChristianTools.Tools;
+using ChristianTools.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -6,6 +8,7 @@ namespace Shared
 {
     internal class About : IScene
     {
+
         Label text;
         Label specialThanks;
 
@@ -30,15 +33,16 @@ namespace Shared
             this.menuButton = new Button(
                                         rectangle: new Rectangle(200, 350, 100, 50),
                                         text: "Menu",
-                                        defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green),
-                                        mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen),
-                                        spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
-                                        fontColor: Color.Black
+                                        defaultTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green),
+                                        mouseOverTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen),
+                                        spriteFont: Tools.Font.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                        fontColor: Color.Black,
+                                        ButtonID: ""
                                         );
 
             this.text = new Label(
                                 rectangle: new Rectangle(0, 100, WK.Default.CanvasWidth, WK.Default.CanvasHeight - 300),
-                                spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_15),
+                                spriteFont: Tools.Font.GetFont(MyGame.contentManager, WK.Font.Arial_15),
                                 text: aboutText,
                                 textAlignment: Label.TextAlignment.Top_Center,
                                 fontColor: Color.Black,
@@ -47,13 +51,13 @@ namespace Shared
 
             this.specialThanks = new Label(
                                         rectangle: new Rectangle(0, 0, WK.Default.CanvasWidth, WK.Default.CanvasHeight),
-                                        spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                        spriteFont: Tools.Font.GetFont(MyGame.contentManager, WK.Font.Arial_10),
                                         text: specialThanksText,
                                         textAlignment: Label.TextAlignment.Down_Left,
                                         fontColor: Color.Black
                                         );
 
-            backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, WK.Default.CanvasHeight, WK.Default.CanvasWidth);
+            backgroundTexture = Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, WK.Default.CanvasHeight, WK.Default.CanvasWidth);
         }
 
         public void Update(GameTime gameTime)

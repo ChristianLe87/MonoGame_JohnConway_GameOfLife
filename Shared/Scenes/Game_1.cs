@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using ChristianTools.Tools;
+using ChristianTools.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -14,16 +16,17 @@ namespace Shared
 
         public void Initialize()
         {
-            Texture2D aliveTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen);//, 10, 10);
-            Texture2D deadTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen);//, 10, 10);
+            Texture2D aliveTexture = Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen);//, 10, 10);
+            Texture2D deadTexture = Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen);//, 10, 10);
 
             this.GoToMenuButton = new Button(
                                             rectangle: new Rectangle(5, 5, 70, 30),
                                             text: "Menu",
-                                            defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Gray, 10, 10),
-                                            mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGray, 10, 10),
-                                            spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
-                                            fontColor: Color.Black
+                                            defaultTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Gray, 10, 10),
+                                            mouseOverTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGray, 10, 10),
+                                            spriteFont: Tools.Font.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                            fontColor: Color.Black,
+                                            ButtonID: ""
                                             );
 
 

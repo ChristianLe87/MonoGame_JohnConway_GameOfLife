@@ -13,18 +13,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\Game_1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\Menu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\WK.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Tools.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\About.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\Intro.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\UI\Label.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\UI\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Cell.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Scenes\" />
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Helpers\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\" />
     <Folder Include="$(MSBuildThisFileDirectory)Assets\" />
   </ItemGroup>

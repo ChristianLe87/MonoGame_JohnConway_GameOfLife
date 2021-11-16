@@ -1,4 +1,5 @@
 ﻿using System;
+using ChristianTools.Tools;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -18,7 +19,7 @@ namespace Shared
 
         public void Initialize()
         {
-            this.texture = Tools.GetTexture(MyGame.graphicsDeviceManager.GraphicsDevice, MyGame.contentManager, WK.Image.Intro_500_500_PNG);
+            this.texture = Tools.Texture.GetTexture(MyGame.graphicsDeviceManager.GraphicsDevice, MyGame.contentManager, WK.Image.Intro_500_500_PNG);
             this.rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
 
             this.startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();

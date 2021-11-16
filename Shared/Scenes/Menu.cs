@@ -1,4 +1,6 @@
 ﻿using System;
+using ChristianTools.Tools;
+using ChristianTools.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,22 +18,24 @@ namespace Shared
             GameButton = new Button(
                                     rectangle: new Rectangle(200, 100, 100, 50),
                                     text: "Game 1",
-                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
-                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
-                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
-                                    fontColor: Color.Black
+                                    defaultTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
+                                    mouseOverTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                    spriteFont: Tools.Font.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                    fontColor: Color.Black,
+                                    ButtonID: ""
                                     );
 
             AboutButton = new Button(
                                     rectangle: new Rectangle(200, 400, 100, 50),
                                     text: "About",
-                                    defaultTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
-                                    mouseOverTexture: Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
-                                    spriteFont: Tools.GetFont(MyGame.contentManager, WK.Font.Arial_10),
-                                    fontColor: Color.Black
+                                    defaultTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.Green, 10, 10),
+                                    mouseOverTexture: Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.DarkGreen, 10, 10),
+                                    spriteFont: Tools.Font.GetFont(MyGame.contentManager, WK.Font.Arial_10),
+                                    fontColor: Color.Black,
+                                    ButtonID: ""
                                     );
 
-            backgroundTexture = Tools.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, WK.Default.CanvasHeight, WK.Default.CanvasWidth);
+            backgroundTexture = Tools.Texture.CreateColorTexture(MyGame.graphicsDeviceManager.GraphicsDevice, Color.LightGreen, WK.Default.CanvasHeight, WK.Default.CanvasWidth);
         }
 
         public void Update(GameTime gameTime)
