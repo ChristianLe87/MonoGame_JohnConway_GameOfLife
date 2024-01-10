@@ -5,11 +5,13 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{5C4F506F-4B4C-4F9F-A485-4E891498415F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "macOS", "macOS\macOS.csproj", "{4BDBB0E6-55B6-4453-9D1F-5803D6E6EFB1}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChristianTools.Components", "ChristianTools.Components\ChristianTools.Components.shproj", "{CDB87FE8-6EA9-4547-911C-5BE24DC22592}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChristianTools.Tools", "..\Monogame_Christian_Tools\ChristianTools.Tools\ChristianTools.Tools.shproj", "{F57B7D86-CEA4-408B-B3D0-E2A1BA9F7D05}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChristianTools.Helpers", "ChristianTools.Helpers\ChristianTools.Helpers.shproj", "{D303B2DE-52D1-4698-824B-F0D486922015}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChristianTools.UI", "..\Monogame_Christian_Tools\ChristianTools.UI\ChristianTools.UI.shproj", "{587E6C09-E5E8-4A29-BC2C-B65BC740CA4B}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChristianTools.Tools", "ChristianTools.Tools\ChristianTools.Tools.shproj", "{F57B7D86-CEA4-408B-B3D0-E2A1BA9F7D05}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChristianTools.UI", "ChristianTools.UI\ChristianTools.UI.shproj", "{587E6C09-E5E8-4A29-BC2C-B65BC740CA4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Debug|anycpu.Build.0 = Debug|anycpu
 		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Release|anycpu.ActiveCfg = Release|anycpu
 		{5C4F506F-4B4C-4F9F-A485-4E891498415F}.Release|anycpu.Build.0 = Release|anycpu
-		{4BDBB0E6-55B6-4453-9D1F-5803D6E6EFB1}.Debug|anycpu.ActiveCfg = Debug|Any CPU
-		{4BDBB0E6-55B6-4453-9D1F-5803D6E6EFB1}.Debug|anycpu.Build.0 = Debug|Any CPU
-		{4BDBB0E6-55B6-4453-9D1F-5803D6E6EFB1}.Release|anycpu.ActiveCfg = Release|Any CPU
-		{4BDBB0E6-55B6-4453-9D1F-5803D6E6EFB1}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
